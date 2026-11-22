@@ -37,7 +37,7 @@ A scheduled GitHub Action keeps both fed with **real** GitHub data. No paid serv
 ├─ public/
 │  ├─ data/github.json           ← GENERATED: real contribution calendar + public repositories
 │  └─ media/                     ← GENERATED: posters, social image, preview MP4s
-├─ assets/readme/                ← README images (archive SVGs generated daily; preview WebPs rendered)
+├─ assets/readme/                ← README images (Singularity banner + archive SVGs generated daily; preview WebPs rendered)
 ├─ scripts/                      ← sync-github, render-readme-assets, update-readme, check-readme, capture-previews
 ├─ tests/                        ← unit tests (Vitest)
 ├─ e2e/                          ← browser tests (Playwright)
@@ -116,6 +116,7 @@ When it finishes, the deploy job shows your site URL. The profile README updates
 | A project's description, website link or topics | the repository's *About* panel on GitHub — it syncs automatically |
 | Hand-written README text | `README.md` (anything outside the `AETHER:PROJECTS` markers) |
 | Colours, type, motion | `src/styles/tokens.css` (see `docs/DESIGN-LANGUAGE.md`) |
+| Singularity banner colours (`'ember'` warm disk or `'cobalt'`) | `singularity.palette` in `src/content/site.ts` |
 
 Push to `main` and the site redeploys. Data refreshes every day at 03:17 UTC; run the workflow manually for an immediate refresh.
 

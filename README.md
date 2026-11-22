@@ -1,20 +1,31 @@
 <!--
   PROJECT AETHER — profile README of @Muhammad-Adil-Abir.
   Generated parts (refreshed daily by .github/workflows/aether.yml — do not edit by hand):
+    • assets/readme/singularity.svg        black-hole banner, one particle per real day
     • assets/readme/launch-archive-*.svg   real contribution data
     • the block between the AETHER:PROJECTS markers   real public repositories
   Everything else is written by hand and safe to edit.
 -->
 
-<a href="https://muhammad-adil-abir.github.io/Muhammad-Adil-Abir/">
-  <img src="assets/readme/arrival.webp" width="100%" alt="Welcome to Abir's World. An original armored figure rises before a column of light in a dark, smoky landscape.">
+<a href="https://muhammad-adil-abir.github.io/Muhammad-Adil-Abir/#archive">
+  <img src="assets/readme/singularity.svg" width="100%" alt="Singularity: a black hole whose accretion disk holds one particle for every day of the last 12 months of Adil Akhtab Abir's real GitHub activity.">
 </a>
 
 <p align="center">
   <a href="https://muhammad-adil-abir.github.io/Muhammad-Adil-Abir/"><b>Enter the interactive world →</b></a>
   &nbsp;·&nbsp;
-  <sub>The live site plays the full real-time 3D experience. This page is its static edition.</sub>
+  <sub>One particle per day of real GitHub activity — brighter streaks are busier days. Regenerated daily.</sub>
 </p>
+
+<br>
+
+### `CH.01` — The Arrival
+
+<a href="https://muhammad-adil-abir.github.io/Muhammad-Adil-Abir/">
+  <img src="assets/readme/arrival.webp" width="100%" alt="Welcome to Abir's World. An original armored figure rises before a column of light in a dark, smoky landscape.">
+</a>
+
+<sub>The live site plays the full real-time 3D experience; this is its recorded trailer.</sub>
 
 <br>
 

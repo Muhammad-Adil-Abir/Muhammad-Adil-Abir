@@ -2,12 +2,15 @@
  * Writes the README's Launch Archive images from public/data/github.json:
  *   assets/readme/launch-archive-dark.svg
  *   assets/readme/launch-archive-light.svg
+ *   assets/readme/singularity.svg  (black-hole banner, one particle per day)
  * With no data yet, both show an honest "awaiting first sync" panel.
  */
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { validateSnapshot } from '../src/lib/archive';
 import { renderArchiveSvg } from './lib/archive-svg';
+import { renderSingularitySvg } from './lib/singularity-svg';
+import { site } from '../src/content/site';
 
 async function main() {
   let snapshot = null;
@@ -23,6 +26,13 @@ async function main() {
     await writeFile(file, renderArchiveSvg(snapshot, theme), 'utf8');
     console.log(`[aether] wrote ${file}`);
   }
+  const singularity = resolve(dir, 'singularity.svg');
+  await writeFile(
+    singularity,
+    renderSingularitySvg(snapshot, { name: site.name, tagline: site.arrival.supporting, palette: site.singularity.palette }),
+    'utf8',
+  );
+  console.log(`[aether] wrote ${singularity}`);
 }
 
 main().catch((e) => {

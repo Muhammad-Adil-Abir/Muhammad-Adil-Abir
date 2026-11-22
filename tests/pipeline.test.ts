@@ -113,3 +113,49 @@ describe('README projects block', () => {
     expect(() => replaceBlock('no markers', 'x')).toThrow(/markers/);
   });
 });
+
+describe('Singularity banner', () => {
+  const opts = { name: 'Adil Akhtab Abir', tagline: 'A world built on curiosity, code, and possibility.' };
+
+  it('holds exactly one particle per real day (drawn once behind and once in front of the horizon)', async () => {
+    const { renderSingularitySvg } = await import('../scripts/lib/singularity-svg');
+    const snap = syntheticSnapshot();
+    const svg = renderSingularitySvg(snap, opts);
+    expect(XMLValidator.validate(svg)).toBe(true);
+    const days = snap.calendars[0]!.days.length;
+    expect((svg.match(/<path d="M/g) ?? []).length).toBe(days * 2);
+  });
+
+  it('prints the real totals and stays static for reduced motion', async () => {
+    const { renderSingularitySvg } = await import('../scripts/lib/singularity-svg');
+    const snap = syntheticSnapshot();
+    const svg = renderSingularitySvg(snap, opts);
+    const total = snap.calendars[0]!.days.reduce((s, d) => s + d.count, 0);
+    const active = snap.calendars[0]!.days.filter((d) => d.count > 0).length;
+    expect(svg).toContain(`${total.toLocaleString('en-US')}</tspan> CONTRIBUTIONS`);
+    expect(svg).toContain(`${active.toLocaleString('en-US')}</tspan> DAYS IN ORBIT`);
+    expect(svg).toContain('prefers-reduced-motion');
+    expect(svg).not.toMatch(/<script|onload=|javascript:/i);
+  });
+
+  it('is deterministic, so unchanged data never creates a new commit', async () => {
+    const { renderSingularitySvg } = await import('../scripts/lib/singularity-svg');
+    expect(renderSingularitySvg(syntheticSnapshot(), opts)).toBe(renderSingularitySvg(syntheticSnapshot(), opts));
+  });
+
+  it('shows no particles and says so when there is no data', async () => {
+    const { renderSingularitySvg } = await import('../scripts/lib/singularity-svg');
+    const svg = renderSingularitySvg(null, opts);
+    expect(XMLValidator.validate(svg)).toBe(true);
+    expect(svg).toContain('AWAITING THE FIRST GITHUB SYNC');
+    expect(svg).not.toContain('<path d="M');
+  });
+
+  it('escapes untrusted text and supports the cobalt palette', async () => {
+    const { renderSingularitySvg } = await import('../scripts/lib/singularity-svg');
+    const svg = renderSingularitySvg(syntheticSnapshot(), { name: 'A <b> & "c"', tagline: '<x>', palette: 'cobalt' });
+    expect(XMLValidator.validate(svg)).toBe(true);
+    expect(svg).toContain('A &lt;B&gt; &amp; &quot;C&quot;');
+    expect(svg).toContain('#3d7bff');
+  });
+});

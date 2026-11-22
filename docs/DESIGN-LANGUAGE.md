@@ -18,7 +18,7 @@ Curiosity (a figure emerges from darkness), interest (the work), exploration (th
 | Electric cobalt | `#3d7bff` | energy, focus, the one accent colour |
 | Ion | `#a9c6ff` | cooled energy, secondary accent |
 | White-hot | `#f3f7ff` | the hottest light: cores, peak days |
-| Ember | `#ff8a4c` | reserved: a brief fringe on the ignition only |
+| Ember | `#ff8a4c` | reserved: the ignition's fringe, and the Singularity banner's accretion disk (switchable to cobalt) |
 
 No other hues. Data intensity uses the cobalt → white-hot ramp, never a rainbow.
 

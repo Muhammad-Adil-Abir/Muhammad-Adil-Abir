@@ -83,6 +83,9 @@ export const site = {
     { label: 'GitHub', href: 'https://github.com/Muhammad-Adil-Abir', handle: '@Muhammad-Adil-Abir' },
   ] as ContactLink[],
 
+  /** README banner: a black hole whose accretion disk holds one particle per day. 'ember' or 'cobalt'. */
+  singularity: { palette: 'ember' as 'ember' | 'cobalt' },
+
   finale: {
     lines: ['Every ending', 'is a new beginning.'],
     coda: 'The work is never done.',
